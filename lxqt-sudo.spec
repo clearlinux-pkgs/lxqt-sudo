@@ -6,7 +6,7 @@
 #
 Name     : lxqt-sudo
 Version  : 0.14.1
-Release  : 2
+Release  : 3
 URL      : https://downloads.lxqt.org/downloads/lxqt-sudo/0.14.1/lxqt-sudo-0.14.1.tar.xz
 Source0  : https://downloads.lxqt.org/downloads/lxqt-sudo/0.14.1/lxqt-sudo-0.14.1.tar.xz
 Source99 : https://downloads.lxqt.org/downloads/lxqt-sudo/0.14.1/lxqt-sudo-0.14.1.tar.xz.asc
