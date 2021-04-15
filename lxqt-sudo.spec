@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : lxqt-sudo
-Version  : 0.16.0
-Release  : 6
-URL      : https://github.com/lxqt/lxqt-sudo/releases/download/0.16.0/lxqt-sudo-0.16.0.tar.xz
-Source0  : https://github.com/lxqt/lxqt-sudo/releases/download/0.16.0/lxqt-sudo-0.16.0.tar.xz
-Source1  : https://github.com/lxqt/lxqt-sudo/releases/download/0.16.0/lxqt-sudo-0.16.0.tar.xz.asc
+Version  : 0.17.0
+Release  : 7
+URL      : https://github.com/lxqt/lxqt-sudo/releases/download/0.17.0/lxqt-sudo-0.17.0.tar.xz
+Source0  : https://github.com/lxqt/lxqt-sudo/releases/download/0.17.0/lxqt-sudo-0.17.0.tar.xz
+Source1  : https://github.com/lxqt/lxqt-sudo/releases/download/0.17.0/lxqt-sudo-0.17.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -19,7 +19,6 @@ Requires: lxqt-sudo-license = %{version}-%{release}
 Requires: lxqt-sudo-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : liblxqt-data
 BuildRequires : liblxqt-dev
 BuildRequires : lxqt-build-tools
 BuildRequires : qtbase-dev
@@ -64,15 +63,15 @@ man components for the lxqt-sudo package.
 
 
 %prep
-%setup -q -n lxqt-sudo-0.16.0
-cd %{_builddir}/lxqt-sudo-0.16.0
+%setup -q -n lxqt-sudo-0.17.0
+cd %{_builddir}/lxqt-sudo-0.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604544190
+export SOURCE_DATE_EPOCH=1618507286
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -85,10 +84,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604544190
+export SOURCE_DATE_EPOCH=1618507286
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-sudo
-cp %{_builddir}/lxqt-sudo-0.16.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-sudo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+cp %{_builddir}/lxqt-sudo-0.17.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-sudo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
 pushd clr-build
 %make_install
 popd
@@ -107,6 +106,7 @@ popd
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ar.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_arn.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ast.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_bg.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ca.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_cs.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_cy.qm
@@ -130,6 +130,7 @@ popd
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_pt.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_pt_BR.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ru.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_si.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_sk.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_sl.qm
 /usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_tr.qm
