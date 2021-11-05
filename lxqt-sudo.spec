@@ -6,22 +6,61 @@
 #
 Name     : lxqt-sudo
 Version  : 1.0.0
-Release  : 9
+Release  : 10
 URL      : https://github.com/lxqt/lxqt-sudo/releases/download/1.0.0/lxqt-sudo-1.0.0.tar.xz
 Source0  : https://github.com/lxqt/lxqt-sudo/releases/download/1.0.0/lxqt-sudo-1.0.0.tar.xz
 Source1  : https://github.com/lxqt/lxqt-sudo/releases/download/1.0.0/lxqt-sudo-1.0.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
+Requires: lxqt-sudo-bin = %{version}-%{release}
+Requires: lxqt-sudo-data = %{version}-%{release}
+Requires: lxqt-sudo-license = %{version}-%{release}
+Requires: lxqt-sudo-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : liblxqt-dev
+BuildRequires : lxqt-build-tools
 BuildRequires : qtbase-dev
 
 %description
 # lxqt-sudo
 ## Overview
 lxqt-sudo is a graphical front-end of commands `sudo` and `su` respectively. As such it enables regular users to launch applications with permissions of other users including root.
+
+%package bin
+Summary: bin components for the lxqt-sudo package.
+Group: Binaries
+Requires: lxqt-sudo-data = %{version}-%{release}
+Requires: lxqt-sudo-license = %{version}-%{release}
+
+%description bin
+bin components for the lxqt-sudo package.
+
+
+%package data
+Summary: data components for the lxqt-sudo package.
+Group: Data
+
+%description data
+data components for the lxqt-sudo package.
+
+
+%package license
+Summary: license components for the lxqt-sudo package.
+Group: Default
+
+%description license
+license components for the lxqt-sudo package.
+
+
+%package man
+Summary: man components for the lxqt-sudo package.
+Group: Default
+
+%description man
+man components for the lxqt-sudo package.
+
 
 %prep
 %setup -q -n lxqt-sudo-1.0.0
@@ -32,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636129557
+export SOURCE_DATE_EPOCH=1636135693
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -45,7 +84,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1636129557
+export SOURCE_DATE_EPOCH=1636135693
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxqt-sudo
 cp %{_builddir}/lxqt-sudo-1.0.0/LICENSE %{buildroot}/usr/share/package-licenses/lxqt-sudo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
@@ -55,3 +94,59 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/lxqt-sudo
+/usr/bin/lxsu
+/usr/bin/lxsudo
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ar.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_arn.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ast.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_bg.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ca.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_cs.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_cy.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_da.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_de.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_el.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_es.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_et.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_fi.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_fr.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_gl.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_he.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_hr.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_hu.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_id.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_it.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ja.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ko.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_lt.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_nb_NO.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_nl.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_pl.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_pt.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_pt_BR.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_ru.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_si.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_sk.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_sl.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_tr.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_uk.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_vi.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_zh_CN.qm
+/usr/share/lxqt/translations/lxqt-sudo/lxqt-sudo_zh_TW.qm
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/lxqt-sudo/7fab4cd4eb7f499d60fe183607f046484acd6e2d
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/lxqt-sudo.1
+/usr/share/man/man1/lxsu.1
+/usr/share/man/man1/lxsudo.1
